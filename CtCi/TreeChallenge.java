@@ -1,4 +1,4 @@
-import java.util.Random;
+package CtCi;
 
 class Node {
     public int data;
@@ -6,7 +6,7 @@ class Node {
     public Node rightChild;
 }
 
-class Traversal {
+public class TreeChallenge {
     public static void main(String[] args) {
         Node rootNode = createSampleTree(1);
         postOrderTraverse(rootNode);

@@ -1,8 +1,9 @@
-import java.util.Arrays;
+package CtCi;
+
 import java.util.HashMap;
 import java.util.Map;
 
-public class DSOne {
+public class ArraysChallenge {
     public static void main(String[] args) {
         boolean permutation = isPermutation("unique", "uniqeu");
         System.out.println(permutation);
@@ -48,8 +49,4 @@ public class DSOne {
 
         return true;
     }
-
 }
-
-// unique
-// ajduoepw
