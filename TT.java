@@ -2,12 +2,10 @@ import java.util.Arrays;
 
 class TurnTabl {
     public static void main(String[] args) throws java.lang.Exception {
-        int[] input = { 1, 2, 3, 4 };
-        int[] reversedArray = reverseArray(input, 4);
+        int[] input = null;
+        System.out.println(Arrays.toString(input));
+        input = new int[5];
 
-        for (int i : reversedArray) {
-            System.out.print(i + " ");
-        }
     }
 
     static int[] reverseArray(int[] arr, int arraySize) {

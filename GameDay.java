@@ -1,6 +1,8 @@
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -9,6 +11,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.List;
+import java.nio.file.*;
 
 public class GameDay {
     public static void main(String[] args) {
@@ -51,6 +54,19 @@ public class GameDay {
             writer.close();
         } catch (Exception e) {
 
+        }
+    }
+
+    static void writeToFileNIO() throws IOException {
+        Path path = Paths.get("MySecondFile.txt");
+        BufferedWriter writer = Files.newBufferedWriter(path);
+    }
+
+    static void readFromFile(File file) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
     }
 }
