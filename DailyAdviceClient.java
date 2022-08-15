@@ -4,13 +4,12 @@ import java.nio.channels.Channels;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.StandardCharsets;
 
-public class Networking {
+public class DailyAdviceClient {
+
     public static void main(String[] args) {
         new DailyAdviceClient().go();
     }
-}
 
-class DailyAdviceClient {
     public void go() {
         InetSocketAddress address = new InetSocketAddress("localhost", 5000);
         try (SocketChannel channel = SocketChannel.open(address)) {
