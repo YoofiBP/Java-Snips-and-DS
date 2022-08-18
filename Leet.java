@@ -2,8 +2,61 @@ import java.util.Arrays;
 
 public class Leet {
     public static void main(String[] args) {
-        int[] input = { 4, 10, 3, 2, 1, 7, -17 };
-        countingSort(input);
+        int[] input = { -1, -1, 1, 1, 1 };
+        int[] input2 = { 2, 7, 11, 15 };
+        int[] input3 = { 2, 3, 4 };
+        int[] input4 = { -1, 0 };
+        System.out.println(Arrays.toString(twoSum(input, -2)));
+        System.out.println(Arrays.toString(twoSum(input2, 9)));
+        System.out.println(Arrays.toString(twoSum(input3, 6)));
+        System.out.println(Arrays.toString(twoSum(input4, -1)));
+    }
+
+    public static int[] twoSum(int[] numbers, int target) {
+        int currMax = 0, idx1 = -1, idx2 = -1, tempSecond = 0;
+        int[] output = new int[2];
+        if (numbers[numbers.length - 1] <= target) {
+            currMax = numbers[numbers.length - 1];
+            idx2 = numbers.length - 1;
+        } else {
+            if (target < 0) {
+                for (int i = 0; i < numbers.length; i++) {
+                    if (numbers[i] >= 0) {
+                        currMax = numbers[i];
+                        idx2 = i;
+                        break;
+                    }
+                }
+            } else {
+                for (int i = 0; i < numbers.length; i++) {
+                    if (numbers[i] >= target) {
+                        currMax = numbers[i];
+                        idx2 = i;
+                        break;
+                    }
+                }
+            }
+
+        }
+
+        tempSecond = target - currMax;
+
+        while (idx1 == -1) {
+            for (int i = 0; i < idx2; i++) {
+                if (numbers[i] == tempSecond) {
+                    idx1 = i;
+                    break;
+                }
+            }
+            if (idx1 == -1) {
+                idx2--;
+                currMax = numbers[idx2];
+                tempSecond = target - currMax;
+            }
+        }
+        output[0] = idx1 + 1;
+        output[1] = idx2 + 1;
+        return output;
     }
 
     public static void countingSort(int[] nums) {
